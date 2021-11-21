@@ -5,23 +5,7 @@ spring:
     active: dev
   application:
     name: mypractice-oss
-<<<<<<< HEAD
-
-aliyun:
-  oss:
-    endpoint:  ###########
-    keyid:  ###########
-    keysecret: ###########
-    bucketname: ###########
-=======
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-aliyun:
-  oss:
-    endpoint:  
-    keyid:  
-    keysecret:  
-    bucketname:  
->>>>>>> 4ffed4f (first)

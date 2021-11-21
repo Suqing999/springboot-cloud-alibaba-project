@@ -12,8 +12,20 @@
     <artifactId>mypractice-teacher</artifactId>
 
     <dependencies>
-<<<<<<< HEAD
-=======
+
+        <!--Excel-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>2.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+
         <!--服务注册-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -29,7 +41,7 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
->>>>>>> 4ffed4f (first)
+
         <!--mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>

@@ -34,9 +34,6 @@
             <artifactId>joda-time</artifactId>
             <version>2.10.4</version>
         </dependency>
-<<<<<<< HEAD
-
-=======
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -46,7 +43,6 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
->>>>>>> 4ffed4f (first)
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>

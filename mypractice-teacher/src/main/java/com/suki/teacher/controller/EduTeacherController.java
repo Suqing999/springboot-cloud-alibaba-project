@@ -7,16 +7,15 @@ import com.suki.common.Result;
 import com.suki.teacher.entity.EduTeacher;
 import com.suki.teacher.entity.TeacherQuery;
 import com.suki.teacher.exception.MyException;
-<<<<<<< HEAD
-=======
 import com.suki.teacher.feign.OssFileService;
->>>>>>> 4ffed4f (first)
+import com.suki.teacher.service.EduSubjectService;
 import com.suki.teacher.service.EduTeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,8 +38,9 @@ public class EduTeacherController {
     @Autowired
     EduTeacherService eduTeacherService;
 
-<<<<<<< HEAD
-=======
+    @Autowired
+    EduSubjectService eduSubjectService;
+
     @Autowired
     OssFileService ossFileService;
 
@@ -58,7 +58,6 @@ public class EduTeacherController {
 
 
 
->>>>>>> 4ffed4f (first)
     @ApiOperation(value = "获取所有讲师")
     @GetMapping("/list")
     public Result eduList(){
@@ -79,16 +78,13 @@ public class EduTeacherController {
             @ApiParam(name = "id", value = "讲师ID", required = true)
             @PathVariable("id") String id){
         try {
-<<<<<<< HEAD
             eduTeacherService.removeById(id);
-=======
             EduTeacher teacher = eduTeacherService.getById(id);
             eduTeacherService.removeById(id);
             if(teacher.getAvatar()==null){
                 return Result.ok();
             }
             ossFileService.deleteavatar(teacher.getAvatar());
->>>>>>> 4ffed4f (first)
             return Result.ok();
         }catch (Exception e){
             return Result.error();
@@ -96,13 +92,6 @@ public class EduTeacherController {
     }
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 4ffed4f (first)
     @ApiOperation(value = "分页讲师")
     @GetMapping("/{page}/{limit}")
     public Result pageList(
@@ -212,6 +201,20 @@ public class EduTeacherController {
 
 
 
+    @ApiOperation("批量导入课程分类")
+    @PostMapping("/subject/import")
+    public Result batchInput(
+            @ApiParam(name = "file", value = "文件", required = true)
+            @RequestParam("file") MultipartFile file
+    ) {
+        try {
+            eduSubjectService.batchImport(file.getInputStream());
+            System.out.println("成功");
+            return Result.ok().setMessage("导入成功");
+        } catch (Exception e) {
+            throw new MyException(CodeUtil.OSS_ERROR, "课程excel文件上传异常");
+        }
+    }
 
 }
 

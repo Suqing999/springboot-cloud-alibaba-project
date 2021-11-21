@@ -49,9 +49,6 @@ public class FileServiceImpl implements FileService {
         //返回的是url https://mypractice1024-1.oss-cn-beijing.aliyuncs.com/avatar/1.png
         return "https://"+bucketName+"."+endpoint+"/"+objectName;
     }
-<<<<<<< HEAD
-=======
-
     @Override
     public void deleteFile(String url) {
         //url https://mypractice1024-1.oss-cn-beijing.aliyuncs.com/avatar/1.png
@@ -69,5 +66,4 @@ public class FileServiceImpl implements FileService {
         // 关闭OSSClient。
         ossClient.shutdown();
     }
->>>>>>> 4ffed4f (first)
 }

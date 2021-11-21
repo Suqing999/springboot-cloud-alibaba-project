@@ -1,6 +1,7 @@
 package com.suki.teacher.exception;
 
 import com.suki.common.Result;
+import com.suki.teacher.exception.MyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

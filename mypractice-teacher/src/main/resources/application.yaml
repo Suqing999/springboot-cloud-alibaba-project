@@ -1,10 +1,7 @@
 server:
   port: 8001
-<<<<<<< HEAD
-=======
   tomcat:
     max-threads: 10
->>>>>>> 4ffed4f (first)
 spring:
   application:
     name: mypractice-teacher
@@ -18,10 +15,6 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-<<<<<<< HEAD
-
-
-=======
   cloud:
     nacos:
       discovery:
@@ -30,7 +23,6 @@ spring:
       transport:
         port: 8081 #控制台交流的端口 随便指定即可
         dashboard: localhost:8080  #控制台
->>>>>>> 4ffed4f (first)
 #mybatis日志
 mybatis-plus:
   configuration:
@@ -44,9 +36,6 @@ debug: true
 
 logging:
   level:
-<<<<<<< HEAD
-    root: info
-=======
     root: info
 
 mypractice-oss: #服务生产者
@@ -60,4 +49,3 @@ mypractice-oss: #服务生产者
 feign:
   sentinel:
     enabled: true
->>>>>>> 4ffed4f (first)

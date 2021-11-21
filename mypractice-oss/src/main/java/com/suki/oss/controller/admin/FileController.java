@@ -51,9 +51,6 @@ public class FileController {
 
     }
 
-<<<<<<< HEAD
-=======
-    @ApiOperation("测试Nacos")
     @GetMapping("/test")
     public Result test() throws InterruptedException {
         Thread.sleep(3000);
@@ -71,5 +68,4 @@ public class FileController {
         return Result.ok().setMessage("文件删除成功");
     }
 
->>>>>>> 4ffed4f (first)
 }
