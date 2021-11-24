@@ -45,7 +45,7 @@ public class MPGenerator {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("subject"); //模块名
+        pc.setModuleName("teacher"); //模块名
         pc.setParent("com.suki");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -55,7 +55,7 @@ public class MPGenerator {
 
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("edu_subject");
+        strategy.setInclude("edu_course_description");
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
 

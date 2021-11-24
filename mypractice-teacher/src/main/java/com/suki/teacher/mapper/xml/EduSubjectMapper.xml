@@ -2,4 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.suki.teacher.mapper.EduSubjectMapper">
 
+    <resultMap id="nestedSubject" type="com.suki.teacher.entity.vo.EduSubjectVo">
+        <id property="id" column="id"></id>
+        <result column="title" property="title"></result>
+        <result column="sort" property="sort"></result>
+        <collection property="children"
+                    column="id"
+                    select="selectNestedListByParentid"
+                    ofType="com.suki.teacher.entity.vo.EduSubjectVo">
+
+        </collection>
+    </resultMap>
+
+
+
+    <select id="selectNestedListByParentid" parameterType="string" resultMap="nestedSubject">
+        select id, sort,title from edu_subject where parent_id=#{parentId}
+    </select>
 </mapper>
