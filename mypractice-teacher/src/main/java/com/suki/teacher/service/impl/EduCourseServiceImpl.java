@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -26,6 +27,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Autowired
     private EduCourseMapper eduCourseMapper;
 
+    @Transactional(rollbackFor = Exception.class) //所有异常都回滚
     @Override
     public String saveCourseInfo(CourseInfoForm courseInfoForm) {
         System.out.println("service进入");
