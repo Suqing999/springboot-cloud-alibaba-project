@@ -51,4 +51,40 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
         return eduCourse.getId();
     }
+
+    @Override
+    public CourseInfoForm getCourseInfoById(String id) {
+
+        //根据id获取course
+        EduCourse eduCourse = eduCourseMapper.selectById(id);
+        if(eduCourse==null){
+            return null;
+        }
+        //根据id获取courseDescription
+        EduCourseDescription eduCourseDescription = eduCourseDescriptionMapper.selectById(id);
+        //最后组装成CourseInfo
+        CourseInfoForm courseInfoForm = new CourseInfoForm();
+        BeanUtils.copyProperties(eduCourse, courseInfoForm);
+        courseInfoForm.setDescription(eduCourseDescription.getDescription());
+        return courseInfoForm;
+    }
+
+    @Override
+    public void updateCourseInfoById(CourseInfoForm courseInfoForm) { //这个courseInfoForm中有id
+        //更新做两件事 1 、 保存Course
+        EduCourse eduCourse = new EduCourse();
+        //利用BeanUtils工具的copyProperties   或者就是 set/get方法
+        BeanUtils.copyProperties(courseInfoForm, eduCourse); //源--->目的  同名的
+        eduCourse.setStatus(EduCourse.COURSE_DRAFT);//初始状态是未发布
+        eduCourseMapper.updateById(eduCourse);  //更新
+
+        //2、保存CourseDescription
+        EduCourseDescription eduCourseDescription = new EduCourseDescription();
+        eduCourseDescription.setDescription(courseInfoForm.getDescription());
+        //需要拿到刚刚存储的course的信息
+        //可以从34行存储进入的地方，拿到Course的id信息（MP是自动回填）
+        eduCourseDescription.setId(eduCourse.getId());//也可以从courseInfoForm中来
+        eduCourseDescriptionMapper.updateById(eduCourseDescription);
+
+    }
 }

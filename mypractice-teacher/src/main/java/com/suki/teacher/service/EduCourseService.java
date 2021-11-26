@@ -15,4 +15,8 @@ import com.suki.teacher.entity.form.CourseInfoForm;
 public interface EduCourseService extends IService<EduCourse> {
 
     String saveCourseInfo(CourseInfoForm courseInfoForm);
+
+    CourseInfoForm getCourseInfoById(String id);
+
+    void updateCourseInfoById(CourseInfoForm courseInfoForm);
 }
